@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Managament</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Employee Management</p>
+            <input id="ip_search" type="text" placeholder="Search...">
+            <button id="btn_addnew"><i class="fa-solid fa-plus"></i> Add New</button>
+        </div>
+        <div class="main">
+            <table class="table_employee">
+                <thead class="thead_employee">
+                    <th class="thead" style="width: 25%;">Name</th>
+                    <th class="thead" style="width: 35%;">Department</th>
+                    <th class="thead" style="width: 25%;">Phone</th>
+                    <th class="thead" style="width: 15%;">Actions</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Phan Duc Phuong</td>
+                        <td>FSOFT.FI.REC</td>
+                        <td>0948422617</td>
+                        <td>
+                            <button id="btn_edit"><i class="fa-solid fa-pencil btn"></i></button>
+                            <button id="btn_remove"><i class="fa-solid fa-trash btn"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <form class="form_inputEmployee" style="width: 30%;" action="">
+                <div class="ip_name">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter name">
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p class="total">Total Employee: <span>0</span></p>
+            <div class="footer_contents">
+                <p class="span_footer">Administration: <span>0</span></p>
+                <p class="span_footer">Customer Service: <span>0</span></p>
+                <p class="span_footer">Human Resource: <span>0</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
