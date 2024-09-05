@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Managament</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/table.css" />
+    <link rel="stylesheet" href="../CSS/form.css" />
+    <link rel="stylesheet" href="../CSS/modal.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <p>Employee <strong>Management</strong></p>
+        <input id="input_search" type="text" placeholder="Search..." />
+        <button id="btn_addnew"><i class="fa-solid fa-plus"></i> Add New</button>
+      </div>
+      <div class="main">
+        <div class="main_table" id="table_employee" style="margin-right: 15px">
+          <table class="table_employee" id="table_employee_data">
+            <thead class="thead_employee">
+              <th class="thead" style="width: 30%">Name</th>
+              <th class="thead" style="width: 30%">Department</th>
+              <th class="thead" style="width: 30%">Phone</th>
+              <th class="thead" style="width: 10%">Actions</th>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+          </table>
+          <div class="total">
+            <b>Total Employee: <span id="total_Employee">0</span></b>
+          </div>
+          <div class="footer" style="display: flex; justify-content: space-between;">
+            <p class="span_footer">Administration: <span id="total_admin">0</span></p>
+            <p class="span_footer">Human Resources: <span id="total_human">0</span></p>
+            <p class="span_footer">Customer Service: <span id="total_customer">0</span></p>
+          </div>
+        </div>
+        <div class="main_form" id="form_input">
+          <form class="form_employee">
+            <label for="name" style="margin-top: 10px">Name</label><br />
+            <input type="text" id="input_name" name="name" style="margin: 10px 0px" placeholder="Enter name"/><br />
+
+            <label for="lname" style="margin-top: 10px">Department</label><br />
+            <select name="" id="deparment" style="margin: 10px 0px">
+              <option value="0">Select Department</option>
+              <option value="Administration">Administration</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Customer Service">Customer Service</option></select
+            ><br />
+
+            <label for="phone">Phone</label><br />
+            <input type="text" style="margin: 10px 0px" id="input_phone" name="phone" placeholder="Enter phone. Ex: +84 xxx xxx xxx"/>
+            <br />
+            <div class="button_container">
+              <button
+                class="btn_form"
+                type="submit"
+                name="cancel"
+                id="btn_cancel"
+              >
+                Cancel
+              </button>
+              <button
+                class="btn_form"
+                type="submit"
+                name="submit"
+                id="btn_submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span
+              id="spanClose"
+              class="close"
+              onclick="closeModal()"
+              style="color: #000"
+              >&times;</span
+            >
+            <h2>Delete Employee</h2>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete these Records?</p>
+            <small style="color: orange">This action cannot be undone</small>
+          </div>
+          <div class="modal-footer">
+            <div class="">
+              <button
+                class="btn_form"
+                id="btn_cancel_modal"
+                onclick="closeModal()"
+              >
+                Cancel
+              </button>
+              <button class="btn_form" id="btn_Confirm_delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../JS/main1.js"></script>
+  </body>
+</html>

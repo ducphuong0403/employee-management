@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+  }
+  .table_employee {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+  }
+  
+  .thead_employee {
+    border-bottom: 2px solid #dee2e6;
+    padding: 5px;
+  }
+  
+  .thead {
+    text-align: start;
+    font-size: 1.18rem;
+    padding: 0.5rem;
+  }
+  td {
+    margin: 0px;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .total {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0px;
+  }
+  
+  .btn {
+    background-color: #fff;
+    border: none;
+  }
+  .btn_edit {
+    font-size: 1rem;
+    color: #ffc107;
+    background-color: #fff;
+    border: none;
+  }
+  .btn_remove {
+    font-size: 1rem;
+    color: #e34724;
+    background-color: #fff;
+    border: none;
+  }
+  
+  .main_table {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #f1f1f1;
+  }
