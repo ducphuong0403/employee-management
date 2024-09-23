@@ -1,42 +1,32 @@
-import React from "react";
-import { EmployeeTableRecord } from "../../../components/organisms/TableEmployee";
-import cssModuleNameTag from "../../../components/cssModuleNameTag";
-import styles from "./styles.scss";
-import { DEPARTMENTS } from "../../../../data/departments";
+import React from 'react';
+import { connect } from 'react-redux';
+import { deleteEmployee, setCurrentEmployee, toggleModal } from './actions';
+import EmployeeTableHeader from './EmployeeTableHeader';
+import EmployeeTableRecord from './EmployeeTableRecord';
+import ContentFooter from '../ContentFooter';
 
-const cssModules = new cssModuleNameTag(styles);
+const EmployeeTable = ({ employees, deleteEmployee, setCurrentEmployee, toggleModal }) => {
+  const handleEdit = (employee) => {
+    setCurrentEmployee(employee);
+  };
 
-const Department = (id) => {
-  return DEPARTMENTS.find((department) => department.departmentId === id)
-    .departmentName;
-};
-
-const EmployeeList = ({ onOpenPopupConfirmDelete, listEmployeeData, onEditEmployee }) => {
   return (
-    <>
-      {listEmployeeData.map((employee) => (
-        <EmployeeTableRecord key={employee.id}>
-          <p>{employee.fullName}</p>
-          <p>{Department(employee.deptId)}</p>
-          <p>{employee.phone}</p>
-          <div className={cssModules`container-icon`}>
-            <button
-              className={cssModules`edit`}
-              onClick={() => onEditEmployee(employee)}
-            >
-              <i className="fas fa-pencil-alt"></i>
-            </button>
-            <button
-              className={cssModules`remove`}
-              onClick={onOpenPopupConfirmDelete}
-            >
-              <i className="fas fa-trash"></i>
-            </button>
-          </div>
-        </EmployeeTableRecord>
-      ))}
-    </>
+    <div className="table-content">
+      <table>
+        <EmployeeTableHeader />
+        <tbody>
+          {employees.map((employee) => (
+            <EmployeeTableRecord key={employee.id} employee={employee} onEdit={handleEdit} onDelete={() => deleteEmployee(employee.id)} />
+          ))}
+        </tbody>
+      </table>
+      <ContentFooter />
+    </div>
   );
 };
 
-export default EmployeeList;
+const mapStateToProps = (state) => ({
+  employees: state.employees,
+});
+
+export default connect(mapStateToProps, { deleteEmployee, setCurrentEmployee, toggleModal })(EmployeeTable);

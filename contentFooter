@@ -1,0 +1,28 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import Label from '../../atoms/Label';
+import cssModuleNameTag from '../../cssModuleNameTag';
+import styles from './styles.scss';
+
+const cssModules = new cssModuleNameTag(styles);
+
+const ContentFooter = ({ totalEmployees }) => {
+  return (
+    <div className={cssModules`root-footer`}>
+      <div className={cssModules`footer-total`}>
+        <Label title={'Total Employee: '}>{totalEmployees.total}</Label>
+      </div>
+      <div className={cssModules`footer-total-item`}>
+        <Label title={'Administration: '} value={totalEmployees.administration}></Label>
+        <Label title={'Customer Service: '} value={totalEmployees.customerService}></Label>
+        <Label title={'Human Resource: '} value={totalEmployees.humanResource}></Label>
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  totalEmployees: state.totalEmployees,
+});
+
+export default connect(mapStateToProps)(ContentFooter);
